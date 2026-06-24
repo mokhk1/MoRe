@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أساطير المدح</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma, Arial, sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    background:linear-gradient(-45deg,#001f4d,#0066ff,#ff1493,#ff69b4);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    text-align:center;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 40px rgba(255,255,255,.2);
+}
+
+h1{
+    color:white;
+    margin-bottom:30px;
+    font-size:42px;
+    text-shadow:0 0 20px white;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+button{
+    border:none;
+    padding:18px 35px;
+    border-radius:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#mohammed{
+    background:#0066ff;
+    box-shadow:0 0 25px #0066ff;
+}
+
+#mohammed:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 60px #0066ff;
+}
+
+#retal{
+    background:#ff1493;
+    box-shadow:0 0 25px #ff1493;
+}
+
+#retal:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 60px #ff1493;
+}
+
+#result{
+    margin-top:35px;
+    min-height:120px;
+    width:700px;
+    max-width:90vw;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:38px;
+    font-weight:900;
+
+    border-radius:25px;
+    padding:20px;
+
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(15px);
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px white,
+        0 0 40px white;
+}
+
+.pop{
+    animation:pop .45s ease;
+}
+
+@keyframes pop{
+    0%{
+        transform:scale(.5);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔥 The Goats 🔥</h1>
+
+<div class="buttons">
+<button id="mohammed" onclick="praiseMohammed()">
+🔵 محمد خبراني
+</button>
+
+<button id="retal" onclick="praiseRetal()">
+🌸 ريتال عبدالمنان
+</button>
+</div>
+
+<div id="result">
+اضغط على أحد الأساطير 👑
+</div>
+
+</div>
+
+<script>
+
+const mohammedPraises = [
+"محمد الأفضل",
+"خبراني عمك",
+"حمود القوت",
+"محمد زعيم المجرة",
+"خبراني سيد الساحة",
+"حمود ملك الفخامة",
+"محمد رقم 1 بلا نقاش",
+"حمود أسطورة الكوكب",
+"خبراني فوق التقييم",
+"محمد الهيبة شخصياً",
+"حمود إذا دخل انتهى النقاش",
+"محمد بطل الأبطال",
+"خبراني رئيس الكوكب",
+"حمود فخر البشرية",
+"محمد مدرسة في العظمة",
+"خبراني كبير القوم",
+"حمود نسخة محدودة",
+"محمد كسر الميزان من القوة",
+"خبراني وحش الساحة",
+"حمود سيد الزعماء"
+];
+
+const retalPraises = [
+"ريتا أقوى وحده",
+"ريتا القوته",
+"ريتا عمتك",
+"ريتال ملكة الهيبة",
+"ريتا زعيمة المجرة",
+"ريتال تاج الأساطير",
+"ريتا أم الهيبة",
+"ريتال فخر الكوكب",
+"ريتا فوق الوصف",
+"ريتال أيقونة الفخامة",
+"ريتا زعيمة الزعيمات",
+"ريتال نسخة نادرة",
+"ريتا إذا حضرت انتهت المنافسة",
+"ريتال كبيرة المقام",
+"ريتا بطلة الأبطال",
+"ريتال فوق التقييم",
+"ريتا عنوان القوة",
+"ريتال أسطورة الجيل",
+"ريتا قائدة الساحة",
+"ريتال هيبة تمشي على الأرض"
+];
+
+function animateResult(text){
+    const result = document.getElementById("result");
+
+    result.innerText = text;
+
+    result.classList.remove("pop");
+    void result.offsetWidth;
+    result.classList.add("pop");
+}
+
+function praiseMohammed(){
+    const random =
+    mohammedPraises[Math.floor(Math.random()*mohammedPraises.length)];
+
+    animateResult("🔵 " + random);
+}
+
+function praiseRetal(){
+    const random =
+    retalPraises[Math.floor(Math.random()*retalPraises.length)];
+
+    animateResult("🌸 " + random);
+}
+
+</script>
+
+</body>
+</html>
+```
